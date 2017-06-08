@@ -78,7 +78,7 @@ if (!class_exists('et_elegant_crm')) :
       else {
         $data = array(
           'post_title' => $_POST['name'],
-          'post_type' => 'customers',
+          'post_type' => 'customer',
           'post_status' => 'private'
         );
         $id = wp_insert_post($data);
@@ -97,11 +97,11 @@ if (!class_exists('et_elegant_crm')) :
     }
 
     function add_customers_post_type() {
-      register_post_type('customers', array(
+      register_post_type('customer', array(
         'labels' => array(
-          'name' => __('Customers'),
+          'name' => __('Customer'),
           'singular_name' => __('Customer'),
-          'add_new' => _x('Add new', 'Customers item'),
+          'add_new' => _x('Add new', 'Customer item'),
           'add_new_item' => __('Add New Customer'),
         ),
         'public' => false,

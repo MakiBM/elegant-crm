@@ -109,6 +109,7 @@ if (!class_exists('et_elegant_crm')) :
         '_builtin' => false,
         'show_ui' => true,
         'capability_type' => 'post',
+        'taxonomies' => array('post_tag','category'),
         'hierarchical' => false,
         'supports' => array('title', 'custom-fields'),
         'rewrite' => array("slug" => 'customers'),

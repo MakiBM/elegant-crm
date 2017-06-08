@@ -1,0 +1,164 @@
+// Colors
+$black: #000000;
+$almost-black: #0c121f;
+$dark-gray: #181e2a;
+$gray: #f7f7f7;
+$white: #ffffff;
+$yellow: #f7df1e;
+$red: #e34f26;
+$blue: #1f9eee;
+
+// Easings
+$easing-primary: cubic-bezier(0.16, 0.68, 0.43, 0.99);
+
+.et-elegant-crm {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.et-elegant-crm__form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.et-elegant-crm__field {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-bottom: 40px;
+  align-items: center;
+
+  &.-half {
+    @media(min-width: 480px) {
+      width: calc(50% - 10px);
+    }
+  }
+
+}
+
+.et-elegant-crm__field__input,
+.et-elegant-crm__field__textarea {
+  display: block;
+  padding: 10px 0;
+  width: 100%;
+  border-bottom: 2px solid;
+  border-color: currentColor;
+  border-left: 0;
+  border-radius: 0;
+  border-right: 0;
+  border-top: 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: inherit;
+  background-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.et-elegant-crm__field__textarea {
+  height: 72px;
+}
+
+.et-elegant-crm__field__label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: normal;
+  pointer-events: none;
+  transition: .2s $easing-primary all;
+}
+
+.et-elegant-crm__field__bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    transition: .2s $easing-primary all;
+  }
+
+  &:before {
+    left: 50%;
+    background: linear-gradient(-135deg, $blue 0%, $yellow 100%);
+  }
+
+  &:after {
+    right: 50%;
+    background: linear-gradient(-135deg, $yellow 0%, $red  100%);
+  }
+}
+
+.et-elegant-crm__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 100%;
+  max-width: 220px;
+  color: white;
+  background-color: black;
+  transition: .2s $easing-primary all;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    background-color: rgba(black, 0.7);
+  }
+}
+
+/*
+  Active state
+*/
+.et-elegant-crm__field__input:focus ~ .et-elegant-crm__field__label,
+.et-elegant-crm__field__input:valid ~ .et-elegant-crm__field__label,
+.et-elegant-crm__field__input.has-value ~ .et-elegant-crm__field__label,
+.et-elegant-crm__field__textarea:focus ~ .et-elegant-crm__field__label,
+.et-elegant-crm__field__textarea:valid ~ .et-elegant-crm__field__label {
+  top: -20px;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.et-elegant-crm__field__input:focus ~ .et-elegant-crm__field__bar:before,
+.et-elegant-crm__field__input:focus ~ .et-elegant-crm__field__bar:after,
+.et-elegant-crm__field__textarea:focus ~ .et-elegant-crm__field__bar:before,
+.et-elegant-crm__field__textarea:focus ~ .et-elegant-crm__field__bar:after {
+  width: 50%;
+}
+
+/*
+  Error State
+ */
+
+.et-elegant-crm__field__input.is-error,
+.et-elegant-crm__field__textarea.is-error {
+  color: $red !important;
+}
+
+.et-elegant-crm__field__input.is-error ~ .et-elegant-crm__field__bar:before,
+.et-elegant-crm__field__input.is-error ~ .et-elegant-crm__field__bar:after,
+.et-elegant-crm__field__textarea.is-error ~ .et-elegant-crm__field__bar:before,
+.et-elegant-crm__field__textarea.is-error ~ .et-elegant-crm__field__bar:after {
+  width: 50%;
+  background: $red;
+}
+
+.et-elegant-crm__field__input.is-error ~ .et-elegant-crm__field__label,
+.et-elegant-crm__field__textarea.is-error ~ .et-elegant-crm__field__label {
+  color: $red;
+}
